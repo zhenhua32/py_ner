@@ -25,3 +25,5 @@ return-code: 1
 stdout/stderr:
 nvcc fatal   : nvcc cannot find a supported version of Microsoft Visual Studio. Only the versions between 2017 and 2019 (inclusive) are supported! The nvcc flag '-allow-unsupported-compiler' can be used to override this version check; however, using an unsupported host compiler may cause compilation failure or incorrect run time execution. Use at your own risk.
 ```
+
+环境又搞崩了, 删了重新建个 env. 现在又卡在 cupy 上了.
