@@ -1,3 +1,4 @@
+import time
 from spacy.cli.train import train
 
 
@@ -7,6 +8,8 @@ def main():
     dev_file = "./data/resume_zh_spacy/dev.spacy"
     model_dir = "model_dir/cpu"
 
+    # CPU 训练, 用时 244 s
+    # GPU 训练坑我,, 用了 475 s, 你这是认真的吗?
     train(
         config_file,
         overrides={
@@ -14,6 +17,7 @@ def main():
             "paths.dev": dev_file,
         },
         output_path=model_dir,
+        use_gpu=-1,
     )
 
 
@@ -30,9 +34,12 @@ def main_gpu():
             "paths.dev": dev_file,
         },
         output_path=model_dir,
+        use_gpu=0,  # 似乎是个整数, -1 不使用 GPU, 0 使用第一个 GPU, TODO: 怎么用多 GPU
     )
 
 
 if __name__ == "__main__":
-    # main()
-    main_gpu()
+    start = time.time()
+    main()
+    # main_gpu()
+    print("time cost: ", time.time() - start)
