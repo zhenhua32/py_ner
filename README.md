@@ -27,3 +27,4 @@ nvcc fatal   : nvcc cannot find a supported version of Microsoft Visual Studio. 
 ```
 
 环境又搞崩了, 删了重新建个 env. 现在又卡在 cupy 上了.
+还有个问题是在 conda 的其他环境下, python 和 pip 总是指向 base 环境.
