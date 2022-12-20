@@ -8,7 +8,7 @@ def main():
     dev_file = "./data/resume_zh_spacy/dev.spacy"
     model_dir = "model_dir/cpu"
 
-    # CPU 训练, 用时 244 s
+    # CPU 训练, 用时 244 s, 最后的分数是 0.89
     # GPU 训练坑我,, 用了 475 s, 你这是认真的吗?
     train(
         config_file,
@@ -27,6 +27,7 @@ def main_gpu():
     dev_file = "./data/resume_zh_spacy/dev.spacy"
     model_dir = "model_dir/gpu"
 
+    # 使用 GPU 训练, 用了 809 s, 最后的分数是 0.93
     train(
         config_file,
         overrides={
@@ -40,6 +41,6 @@ def main_gpu():
 
 if __name__ == "__main__":
     start = time.time()
-    main()
-    # main_gpu()
+    # main()
+    main_gpu()
     print("time cost: ", time.time() - start)
